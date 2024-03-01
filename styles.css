@@ -367,7 +367,7 @@ footer {
     flex-shrink: 1;
 }
 
-.more-info-footer div:hover {
+.more-info-footer div a:hover {
     color: #fa3f6c;
 }
 
