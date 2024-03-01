@@ -87,6 +87,7 @@ moreInfoBtns.forEach((moreInfoBtn) => {
 });
 
 closeSearchBtn.addEventListener("click", () => {
+  searchInput.value = "";
   removeSearchResults();
 });
 
