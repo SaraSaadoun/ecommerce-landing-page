@@ -1,0 +1,392 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    background-color: #f3f6fb;
+}
+
+header {
+    position: sticky;
+    top:0;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15px;
+    background-color: #fff;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#logo {
+    color: #000;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.hamburger {
+    display: none;
+    background-color: transparent;
+    border: 0;
+    color: #000;
+    font-size: 24px;
+    cursor: pointer;
+    
+}
+.hamburger:hover {
+    color: #fa3f6c;
+}
+
+.hamburger:focus {
+    outline: none;
+}
+
+nav {
+    padding:20px
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+
+}
+
+.nav-links li {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #000;
+    transition: color 0.3s ease;
+}
+
+.nav-links li :hover {
+    color:#fa3f6c;
+}
+
+.nav-links .toggle-search {
+    cursor: pointer;
+}
+
+.search-area {
+    display: none;
+    padding: 15px;
+    margin: 0 auto;
+    background-color: #fae8f0;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-area.show {
+    display: flex;
+}
+
+.search-results {
+    position: absolute;
+    top: 104%;
+    left: 0;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    z-index: 200000;
+    max-height: 400px; 
+    overflow-y: auto; 
+}
+
+.search-result {
+    cursor: pointer;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    grid-template-rows: 25px 25px;
+    grid-template-areas:
+        "img name"
+        "img price";
+    gap:0 20px;
+}
+
+.search-result h3{
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.search-result:hover {
+    background-color: rgb(240, 240, 240);
+}
+
+.search-result img {
+    grid-area: img;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.search-box {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    max-width: 450px;
+    min-width: 50px;
+    background-color: #fff;
+    flex-grow: 1;
+    height: 30px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.search-input {
+    min-width: 30px;
+    outline: none;
+    border: none;
+    padding: 10px;
+    flex-grow: 1;
+}
+
+.search-box.show-suggestion {
+    border-radius: 10px 10px 0px 0px;;
+}
+
+.search-box:focus {
+    outline: none;
+}
+
+.search-btn {
+    display: grid;
+    place-content: center;
+    flex-grow: 0;
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.search-btn:hover, .close-search-btn :hover{
+    color: #fa3f6c;
+}
+
+.slider-wrapper {
+    display: flex;
+    max-width: 1200px;
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    z-index:1;
+    transition: all 1s ease-in-out;
+}
+
+.slide-btn {
+    position: absolute;
+    top:50%;
+    height: 50px;
+    width: 50px;
+    color:#fff;
+    background-color: #000;
+    font-size: 2.2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    text-align: center;
+    z-index: 1000;
+}
+
+#prev-slide-btn {
+    left: -20px;
+}
+
+#next-slide-btn {
+    right:-20px;
+}
+
+.products-list {
+    display: flex;
+    /* align-items: space-around; */
+    justify-content: start;
+    overflow-x: scroll;
+    padding: 0 10px;
+}
+
+.product-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 250px;
+    position: relative;
+    margin: 28px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-img {
+    width: 250px; 
+    height: 300px; 
+    object-fit: cover; 
+    margin-bottom: 10px;
+    opacity: .95;
+}
+
+.product-img:hover {
+    opacity: 1;
+}
+
+.product-name, .product-price, .product-info {
+    font-size: 20px;
+    padding: 5px 20px;
+}
+
+.product-info {
+    word-wrap: break-word; /* Allow long words to break and wrap onto the next line */
+}
+
+.product-name {
+    font-weight: bold;
+}
+
+.fav, .more-info {
+    display: grid;
+    place-content: center;
+    position: absolute;
+    right: 10px;
+    font-size: 20px;
+    background-color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: 0.3s background-color ease;
+    cursor: pointer;
+}
+
+.fav {
+    top: 10px;
+}
+
+.more-info {
+    top: 60px; 
+}
+
+.more-info:hover {
+    background-color: #d1cfcf;
+}
+
+.fav:hover {
+    background-color: #fa3f6c;
+    color: #fff;
+}
+
+.add {
+    background-color: #292929;
+    color:#fff;
+    height:35px;
+    text-align: center;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.product-info {
+    position: absolute;
+    bottom: 35px;
+    width:100%;
+    left: 50%;
+    transform: translateX(-50%) scaleY(0);
+    transform-origin: bottom center; /* Set transform origin to bottom center */
+    background-color: #fff;
+    transition: transform 0.5s ease;
+    padding: 20px;
+}
+
+.product-info.show {
+    transform: translateX(-50%) scaleY(1);
+}
+
+.add:hover {
+    background-color: #151515;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width:100%;
+    align-items: center;
+    padding: 50px;
+    background-color: #e2f1df;
+}
+
+.social-media-container, .more-info-footer {
+    display: flex;
+    justify-content: space-around;
+    max-width:400px;
+    width: 80%;
+    flex-shrink: 1;
+}
+
+.fa-brands {
+    font-size:30px;
+    flex-shrink: 1;
+    cursor: pointer;
+
+}
+
+.more-info-footer div {
+    margin:0 10px;
+}
+
+.fa-facebook {
+    color:#1877f2;
+}
+
+.fa-twitter {
+    color:#000000;
+}
+
+.fa-youtube {
+    color:red;
+}
+
+.fa-instagram {
+    color:#c32aa3;
+}
+
+.more-info-footer div a{
+    text-decoration: none;
+    color:#000;
+    flex-shrink: 1;
+}
+
+.more-info-footer div:hover {
+    color: #fa3f6c;
+}
+
+@media screen and (max-width: 767px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+    .more-info-footer {
+        flex-direction: column;
+        align-items: center;
+    }
+}
